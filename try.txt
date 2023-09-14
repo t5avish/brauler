@@ -1,0 +1,22 @@
+<tbody>
+ <tr class="TextAlignRight">
+  <td>
+   א
+  </td>
+  <td>
+   ב
+  </td>
+  <td>
+   09:30
+  </td>
+  <td>
+   11:30
+  </td>
+  <td>
+   ד"ר סולאמי רדליך משה
+  </td>
+  <td>
+   202 EM
+  </td>
+ </tr>
+</tbody>
