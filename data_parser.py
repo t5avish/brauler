@@ -16,8 +16,13 @@ class Parser:
         except Exception as e:
             print("Some problem with getting course data.")
             return
-        return  BeautifulSoup(response.text, "html.parser")
+        return BeautifulSoup(response.text, "html.parser")
     
+    def get_name(self):
+        topic_string = self.html.find("h1", class_="TextAlignCenter")
+        name = str(topic_string.text.split("שנה")[0].split("קורס")[1])
+        return name[1:len(name) - 1]
+
     def get_types(self):
         types_list = self.html.find_all(string=re.compile("קורס מסוג"))
         for index, type_string in enumerate(types_list):

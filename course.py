@@ -15,6 +15,7 @@ class Lesson:
 class Course:
     def __init__(self, id):
         self.id = id
+        self.name = None
         self.lectures = []
         self.labs = []
         self.practices = []
@@ -32,7 +33,7 @@ class Course:
 
     def get_course_data(self):
         data = Parser(self.id)
-        print(data.url)
+        self.name = data.get_name()
         for i in range(len(data.data_list)):
             type = data.types_list[i]
             row = [row.text.strip() for row in data.data_list[i].find_all('td')]
