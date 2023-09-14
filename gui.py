@@ -6,19 +6,18 @@ ctk.set_default_color_theme("dark-blue")
 
 def add_course():
     id = add_course_entry.get()
-    if not id.isdigit():
-        add_course_entry.configure(text_color="red")
-        add_course_entry.after(1000, lambda:add_course_entry.configure(text_color="white"))
-        return
-    #course = Course(id)
+    course = Course(id)
     course_frame = ctk.CTkFrame(master=top_right_frame)
     course_frame.pack(padx=10, pady=10, fill="both", expand="True")
 
     course_remove_button = ctk.CTkButton(master=course_frame, text="הסר", font=("Narkisim", 18), command = lambda : course_frame.destroy())
     course_remove_button.pack(pady=10, padx=10, side="left")
 
-    course_label = ctk.CTkLabel(master=course_frame, text=id, font=('Narkisim', 18), justify="left")
+    label_text = str(course.id) + " - " + str(course.name)
+    course_label = ctk.CTkLabel(master=course_frame, text=label_text, font=('Narkisim', 18), justify="left")
     course_label.pack(pady=10, padx=10, side="left")
+
+    add_course_entry.delete(0, 'end')
 
 app = ctk.CTk()
 
