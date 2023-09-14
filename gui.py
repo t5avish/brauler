@@ -6,7 +6,15 @@ ctk.set_default_color_theme("dark-blue")
 
 def add_course():
     id = add_course_entry.get()
-    course = Course(id)
+    
+    try:
+        course = Course(int(id))
+    except:
+        add_course_entry.configure(text_color="red")
+        add_course_entry.after(1000,lambda: add_course_entry.configure(text_color="white"))
+        add_course_entry.after(1000,lambda: add_course_entry.delete(0, 'end'))
+        return
+
     course_frame = ctk.CTkFrame(master=top_right_frame)
     course_frame.pack(padx=10, pady=10, fill="both", expand="True")
 

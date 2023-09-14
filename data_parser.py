@@ -11,11 +11,7 @@ class Parser:
         self.data_list = self.get_data()
 
     def get_html(self):
-        try:
-            response = requests.get(self.url)
-        except Exception as e:
-            print("Some problem with getting course data.")
-            return
+        response = requests.get(self.url)
         return BeautifulSoup(response.text, "html.parser")
     
     def get_name(self):
