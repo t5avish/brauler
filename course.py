@@ -33,9 +33,16 @@ class Course:
         self.practices.append(practice)
 
     def about_parser(self, about_list):
-        self.points = float(about_list[0].split(" ")[5])
-        for index in range(1, len(about_list)):
-            self.about += str(about_list[index])
+        print(about_list[0])
+        try:
+            self.points = float(about_list[0].split(" ")[5])
+            for index in range(1, len(about_list)):
+                self.about += str(about_list[index])
+        except:
+                try:
+                    self.points = float(about_list[0].split(" ")[3])
+                except:
+                    self.about = "Error loading data."
 
     def get_course_data(self):
         data = Parser(self.id)

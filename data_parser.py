@@ -1,6 +1,5 @@
 import requests, re
 from bs4 import BeautifulSoup, element
-from bidi.algorithm import get_display
 
 class Parser:
     def __init__(self, id):
