@@ -1,5 +1,6 @@
 import requests, re
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, element
+from bidi.algorithm import get_display
 
 class Parser:
     def __init__(self, id):
@@ -24,7 +25,16 @@ class Parser:
         for index, type_string in enumerate(types_list):
             types_list[index] = re.sub(r'\s+', '', type_string).replace("קורסמסוג",'')
         return types_list
-        
+    
+    def get_about(self):
+        elements = self.html.find("p").children
+        about_list = []
+        for index, str in enumerate(elements):
+            if isinstance(str, element.Tag) or index == 0:
+                continue
+            about_list.append(str)
+        return about_list
+
     def get_data(self):
         data_list = self.html.find_all("tbody")
         last_index = len(data_list)
@@ -36,6 +46,3 @@ class Parser:
                 break
             
         return data_list[0:last_index]
-    
-        
-    
