@@ -41,10 +41,17 @@ def generate_schedules(courses, max_lectures, max_labs, max_practices):
         yield []
         return
 
-    first_course, rest_courses = courses[0], courses[1:]  
+    first_course, rest_courses = courses[0], courses[1:]
     for schedule in generate_schedules(rest_courses, max_lectures, max_labs, max_practices):
         for lessons in find_non_overlapping_lessons(first_course, max_lectures, max_labs, max_practices):
-            if all(not any(do_lessons_overlap(lesson1, lesson2) for _, lessons2 in schedule for lesson2 in lessons2 if lesson2.type == 'הרצאה') for lesson1 in lessons):
+            if all(
+                not any(
+                    do_lessons_overlap(lesson1, lesson2)
+                    for _, lessons2 in schedule
+                    for lesson2 in lessons2
+                )
+                for lesson1 in lessons
+            ):
                 if has_required_lessons(first_course, lessons):
                     yield [(first_course, lessons)] + schedule
 
