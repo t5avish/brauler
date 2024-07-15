@@ -1,5 +1,5 @@
-<h1 align="center">Brauler</h1>
-<p align="center"><img src=""/></p>
+<h1 align="center">brauler</h1>
+<p align="center"><img src="https://github.com/user-attachments/assets/764dbfe9-623b-49e8-9b5c-ca90dc66e9db"/></p>
 
 Brauler is a software for Braude college students that helps them to browse through courses, read about them and assists them in creating an optimal and automated class schedule for their upcoming semester.
 
@@ -19,5 +19,3 @@ $ pip install -r requirements.txt
 $ cd "directory of project"
 $ python main.py
 ```
-
-## Usage
