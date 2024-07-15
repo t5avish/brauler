@@ -15,7 +15,7 @@ class Parser:
         return BeautifulSoup(response.text, "html.parser")
     
     def get_name(self):
-        topic_string = self.html.find("h1", class_="TextAlignCenter")
+        topic_string = self.html.find("h2", class_="TextAlignCenter")
         name = str(topic_string.text.split("שנה")[0].split("קורס")[1])
         return name[1:len(name) - 1]
 
@@ -35,12 +35,12 @@ class Parser:
         return about_list
 
     def get_data(self):
-        data_list = self.html.find_all("tbody")
+        data_list = self.html.find_all('div', class_='Table container ncontainer WithSearch')
         last_index = len(data_list)
 
-        for index in range(len(data_list)):
-            child = data_list[index].findChildren("tr")
-            if child == []:
+        for index in range(last_index):
+            all_children = data_list[index].find_all("div", class_="row")
+            if len(all_children) != 2:
                 last_index = index
                 break
             

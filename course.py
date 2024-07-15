@@ -46,8 +46,8 @@ class Course:
         self.about_parser(about_list)
         for i in range(len(data.data_list)):
             type = data.types_list[i]
-            row = [row.text.strip() for row in data.data_list[i].find_all('td')]
-            lesson = Lesson(type, row[1], row[2], row[3], row[4])
+            row = [row.text.strip() for row in data.data_list[i].find_all('div', class_="row")[1]]
+            lesson = Lesson(type, row[3], row[5], row[7], row[9])
             
             match type:
                 case "הרצאה":

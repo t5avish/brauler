@@ -7,6 +7,7 @@ class GUI:
         ctk.set_appearance_mode("dark")
         ctk.set_default_color_theme("dark-blue")
         self.app = ctk.CTk()
+        self.app.title("Brauler")
         self.courses = []
         self.layout()
         self.app.mainloop()
@@ -138,6 +139,7 @@ class GUI:
                     latest_index = index
 
             schedule_window = ctk.CTkToplevel()
+            schedule_window.title("schedule")
             hours_frame = ctk.CTkFrame(master=schedule_window)
             hours_frame.pack(padx=10, pady=10, side="right", expand="True", fill="both")
 
@@ -174,4 +176,4 @@ class GUI:
                         info = course_name + "\n" + type + "   " + lecturer
                         labels_list[day_index][i].configure(text=info)
         else:
-            print("X")
+            return

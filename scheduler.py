@@ -72,4 +72,6 @@ def scheduler(courses):
             time = datetime.strptime(lesson.finish, '%H:%M').strftime("%H:%M")
             if time > latest:
                 latest = time
+    if latest == "12:20":
+        latest = "12:50"
     return schedule, latest
