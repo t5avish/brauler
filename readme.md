@@ -3,6 +3,8 @@
 
 Brauler is a software for Braude college students that helps them to browse through courses, read about them and assists them in creating an optimal and automated class schedule for their upcoming semester.
 
+The application extracts detailed information about the courses from the college website using web scrapping techniques. it parses HTML content to gather data such as course descriptions, schedules, and instructors.
+
 ## Requirements
 
 Requires [python](https://www.python.org/), [ctk](https://customtkinter.tomschimansky.com/), [bs4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) and [requests](https://requests.readthedocs.io/en/latest/) installed locally.
